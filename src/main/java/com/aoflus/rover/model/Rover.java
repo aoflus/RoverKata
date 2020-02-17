@@ -3,6 +3,7 @@ package com.aoflus.rover.model;
 import com.aoflus.rover.utils.Command;
 import com.aoflus.rover.utils.Coordinate;
 import com.aoflus.rover.utils.Direction;
+import com.aoflus.rover.utils.UnknownCommandException;
 import com.google.common.base.Enums;
 
 public class Rover {
@@ -45,7 +46,7 @@ public class Rover {
 		this.direction = this.direction.rotateRight();
 	}
 	
-	public void readCommand(String stringCommand) {
+	public void readCommand(String stringCommand) throws UnknownCommandException {
 		Command command = Enums.getIfPresent(Command.class, stringCommand).orNull();
 		if (command != null) {
 			switch (command) {
@@ -62,6 +63,8 @@ public class Rover {
 					rotateRight();
 				break;
 			}
+		} else {
+			throw new UnknownCommandException(stringCommand);
 		}
 	}
 }

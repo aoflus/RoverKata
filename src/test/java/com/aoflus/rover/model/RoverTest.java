@@ -5,9 +5,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.aoflus.rover.utils.Command;
 import com.aoflus.rover.utils.Coordinate;
 import com.aoflus.rover.utils.Direction;
+import com.aoflus.rover.utils.UnknownCommandException;
 
 public class RoverTest {
 	
@@ -65,7 +65,7 @@ public class RoverTest {
 	}
 	
 	@Test
-	public void WeWantToMoveTheRoverWhenItReceivesACommand() {
+	public void WeWantToMoveTheRoverWhenItReceivesACommand() throws UnknownCommandException {
 		// Arrange
 		String commandForward = "F";
 		String commandBackWard = "B";
@@ -84,7 +84,7 @@ public class RoverTest {
 	}
 	
 	@Test
-	public void WeWantToRotateTheRoverWhenItReceivesACommand() {
+	public void WeWantToRotateTheRoverWhenItReceivesACommand() throws UnknownCommandException {
 		// Arrange
 		String commandLeft = "L";
 		String commandRight = "R";
@@ -102,8 +102,8 @@ public class RoverTest {
 				rightDirection.equals(Direction.NORTH));
 	}
 	
-	@Test
-	public void WeWantToHandleWhenReceivingAWrongCommand() {
+	@Test(expected = UnknownCommandException.class)
+	public void WeWantToHandleWhenReceivingAWrongCommand() throws UnknownCommandException {
 		// Arrange
 		String wrongCommand = "T";
 		
@@ -116,4 +116,7 @@ public class RoverTest {
 		assertThat("The rover direction is incorrect.",
 				rover.getRoverDirection().equals(Direction.NORTH));
 	}
+	
+	
+	
 }
