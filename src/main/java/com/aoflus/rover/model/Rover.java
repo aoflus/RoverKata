@@ -34,5 +34,9 @@ public class Rover {
 	public void changeDirection(Direction direction) {
 		this.direction = direction;
 	}
+
+	public Direction getRoverDirection() {
+		return this.direction;
+	}
 	
 }

@@ -20,6 +20,15 @@ public class RoverTest {
 	}
 	
 	@Test
+	public void WeWantToAssertTheRoverIsCorrectlyCreated() {
+		// Arrange & Assert
+		assertThat("The rover direction is incorrect",
+				rover.getRoverDirection().equals(Direction.NORTH));
+		assertThat("The rover position is incorrect",
+				rover.getPosition().equals(Coordinate.createCoordinate(5, 5)));
+	}
+	
+	@Test
 	public void WeWantToMoveImplementTheRoverMovement() {	
 		// Arrange & Act
 		// Move the rover
@@ -27,7 +36,6 @@ public class RoverTest {
 		
 		// Assert
 		assertThat("The rover position does not match", rover.getPosition().getX() == 6.0);
-		//assertThat(roverLocation.increaseX(mars.getMarsSize()).equals(rover.getPosition()));
 	}
 	
 	@Test

@@ -38,4 +38,13 @@ public class Coordinate {
 		return Coordinate.createCoordinate(x, (y - 1) % marsLimit.getY());
 	}
 
+	@Override
+	public boolean equals(Object otherCoordinate) {
+		if (!(otherCoordinate instanceof Coordinate)) {
+			return false;
+		} else {
+			return ((Coordinate) otherCoordinate).getX() == this.x
+				&& ((Coordinate) otherCoordinate).getY() == this.y;
+		}
+	}
 }
