@@ -5,6 +5,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.aoflus.rover.utils.Command;
 import com.aoflus.rover.utils.Coordinate;
 import com.aoflus.rover.utils.Direction;
 
@@ -72,5 +73,24 @@ public class RoverTest {
 		// Assert
 		assertThat("The rover did not move itself to the right position.",
 				rover.getPosition().getY() == 6.0);
+	}
+	
+	@Test
+	public void WeWantToMoveTheRoverWhenItReceivesACommand() {
+		// Arrange
+		Command commandForward = Command.F;
+		Command commandBackWard = Command.B;
+		
+		// Act
+		rover.readCommand(commandForward);
+		Coordinate moveForward = rover.getPosition();
+		rover.readCommand(commandBackWard);
+		Coordinate moveBackward = rover.getPosition();
+		
+		// Assert
+		assertThat("The rover did not move itself forward.",
+				moveForward.getX() == 6.0);
+		assertThat("The rover did not move itself backwards.",
+				moveBackward.getX() == 5.0);
 	}
 }

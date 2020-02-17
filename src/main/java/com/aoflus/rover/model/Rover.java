@@ -1,5 +1,6 @@
 package com.aoflus.rover.model;
 
+import com.aoflus.rover.utils.Command;
 import com.aoflus.rover.utils.Coordinate;
 import com.aoflus.rover.utils.Direction;
 
@@ -39,4 +40,20 @@ public class Rover {
 		return this.direction;
 	}
 	
+	public void readCommand(Command command) {
+		switch (command) {
+			case F:
+				moveForward();
+			break;
+			case B:
+				moveBackward();
+			break;
+			case L:
+				// TODO
+			break;
+			case R:
+				// TODO
+			break;
+		}
+	}
 }
