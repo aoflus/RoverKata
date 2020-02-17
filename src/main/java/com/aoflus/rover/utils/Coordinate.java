@@ -52,4 +52,9 @@ public class Coordinate {
 	public int hashCode() {
 		return this.hashCode();
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("x:%.1f, y:%.1f", this.x, this.y);
+	}
 }

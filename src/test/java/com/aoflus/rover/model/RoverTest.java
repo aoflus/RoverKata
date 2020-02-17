@@ -30,11 +30,6 @@ public class RoverTest {
 	}
 	
 	@Test
-	public void WeWantToDisplayCoordinatesPosition() {
-		
-	}
-	
-	@Test
 	public void WeWantToMoveImplementTheRoverMovement() {	
 		// Arrange & Act
 		// Move the rover

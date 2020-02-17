@@ -17,6 +17,13 @@ public class CoordinatesTest {
 		coordinate = Coordinate.createCoordinate(10, 15);
 		mars = new Mars (Coordinate.createCoordinate(10, 15));
 	}
+	
+	@Test
+	public void WeWantToDisplayCoordinatesPosition() {
+		// Assert
+		System.out.println(coordinate.toString());
+		assertThat("The display is incorrect", coordinate.toString().equals("x:10,0, y:15,0"));
+	}
 
 	@Test
 	public void WeWantToCheckThatCoordinatesAreGeneratedCorrectly() {
