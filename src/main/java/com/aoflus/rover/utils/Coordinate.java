@@ -22,13 +22,20 @@ public class Coordinate {
 		return y;
 	}
 
-	public Coordinate increaseX(Coordinate worldLimit) {
-		return Coordinate.createCoordinate((x + 1) % worldLimit.getX(), this.y);
+	public Coordinate increaseX(Coordinate marsLimit) {
+		return Coordinate.createCoordinate((x + 1) % marsLimit.getX(), this.y);
 	}
 
-	public Coordinate decreaseX(Coordinate worldLimit) {
-		return Coordinate.createCoordinate((x - 1) % worldLimit.getX(), this.y);
+	public Coordinate decreaseX(Coordinate marsLimit) {
+		return Coordinate.createCoordinate((x - 1) % marsLimit.getX(), this.y);
+	}
+
+	public Coordinate increaseY(Coordinate marsLimit) {
+		return Coordinate.createCoordinate(x, (y + 1) % marsLimit.getY());
 	}
 	
-	
+	public Coordinate decreaseY(Coordinate marsLimit) {
+		return Coordinate.createCoordinate(x, (y - 1) % marsLimit.getY());
+	}
+
 }

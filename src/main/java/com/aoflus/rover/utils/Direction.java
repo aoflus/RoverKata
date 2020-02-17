@@ -16,32 +16,29 @@ public enum Direction implements MovementBehaviour {
 	
 	SOUTH {
 		public Coordinate moveForward(Rover rover) {
-			return rover.getPosition().increaseX(rover.getMars().getMarsSize());
+			return rover.getPosition().decreaseX(rover.getMars().getMarsSize());
 		}
 
 		public Coordinate moveBackward(Rover rover) {
-			// TODO Auto-generated method stub
-			return null;
+			return rover.getPosition().increaseX(rover.getMars().getMarsSize());
 		}
 	},
 	EAST {
 		public Coordinate moveForward(Rover rover) {
-			return rover.getPosition().increaseX(rover.getMars().getMarsSize());
+			return rover.getPosition().increaseY(rover.getMars().getMarsSize());
 		}
 
 		public Coordinate moveBackward(Rover rover) {
-			// TODO Auto-generated method stub
-			return null;
+			return rover.getPosition().decreaseY(rover.getMars().getMarsSize());
 		}
 	}
 	,WEST {
 		public Coordinate moveForward(Rover rover) {
-			return rover.getPosition().increaseX(rover.getMars().getMarsSize());
+			return rover.getPosition().decreaseY(rover.getMars().getMarsSize());
 		}
 
 		public Coordinate moveBackward(Rover rover) {
-			// TODO Auto-generated method stub
-			return null;
+			return rover.getPosition().increaseY(rover.getMars().getMarsSize());
 		}
 	};
 

@@ -51,7 +51,18 @@ public class RoverTest {
 		rover.moveBackward();
 		
 		// Assert
-		assertThat("The rover did not move backwards!",rover.getPosition().getX() == 4.0);
+		assertThat("The rover did not move backwards!",
+				rover.getPosition().getX() == 4.0);
 	}
 
+	@Test
+	public void WeWantToChangeDirectionsAndMoveForward() {
+		// Arrange & Act
+		rover.changeDirection(Direction.EAST);
+		rover.moveForward();
+		
+		// Assert
+		assertThat("The rover did not move itself to the right position.",
+				rover.getPosition().getY() == 6.0);
+	}
 }
