@@ -67,8 +67,8 @@ public class RoverTest {
 	@Test
 	public void WeWantToMoveTheRoverWhenItReceivesACommand() {
 		// Arrange
-		Command commandForward = Command.F;
-		Command commandBackWard = Command.B;
+		String commandForward = "F";
+		String commandBackWard = "B";
 		
 		// Act
 		rover.readCommand(commandForward);
@@ -86,8 +86,8 @@ public class RoverTest {
 	@Test
 	public void WeWantToRotateTheRoverWhenItReceivesACommand() {
 		// Arrange
-		Command commandLeft = Command.L;
-		Command commandRight = Command.R;
+		String commandLeft = "L";
+		String commandRight = "R";
 		
 		// Act
 		rover.readCommand(commandLeft);
@@ -100,5 +100,20 @@ public class RoverTest {
 				leftDirection.equals(Direction.WEST));
 		assertThat("The rover did not rotate right",
 				rightDirection.equals(Direction.NORTH));
+	}
+	
+	@Test
+	public void WeWantToHandleWhenReceivingAWrongCommand() {
+		// Arrange
+		String wrongCommand = "T";
+		
+		// Arrange
+		rover.readCommand(wrongCommand);
+		
+		// Assert
+		assertThat("The rover position is incorrect.",
+				rover.getPosition().equals(Coordinate.createCoordinate(5, 5)));
+		assertThat("The rover direction is incorrect.",
+				rover.getRoverDirection().equals(Direction.NORTH));
 	}
 }
