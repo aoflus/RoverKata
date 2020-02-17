@@ -29,5 +29,20 @@ public class RoverTest {
 		assertThat("The rover position does not match", rover.getPosition().getX() == 6.0);
 		//assertThat(roverLocation.increaseX(mars.getMarsSize()).equals(rover.getPosition()));
 	}
+	
+	@Test
+	public void WeWantToCheckThatTheWorldIsSpheric() {
+		// Arrange
+		// Change mars size to adjust the test case
+		mars.setMarsSize(Coordinate.createCoordinate(5,5));
+		
+		// Act
+		//Move the rover
+		rover.moveForward();
+		
+		// Assert
+		assertThat("The rover is on an plane planet! Call the earthplanists!",
+				rover.getPosition().getX() == 1);
+	}
 
 }

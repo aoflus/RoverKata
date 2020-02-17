@@ -13,4 +13,8 @@ public class Mars {
 	public Coordinate getMarsSize() {
 		return this.marsSize;
 	}
+	
+	public void setMarsSize(Coordinate marsSize) {
+		this.marsSize = marsSize;
+	}
 }
