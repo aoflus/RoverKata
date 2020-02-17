@@ -36,7 +36,7 @@ public class RoverTest {
 		rover.moveForward();
 		
 		// Assert
-		assertThat("The rover position does not match", rover.getPosition().getX() == 6.0);
+		assertThat("The rover position does not match", rover.getPosition().getY() == 6.0);
 	}
 	
 	@Test
@@ -51,7 +51,7 @@ public class RoverTest {
 		
 		// Assert
 		assertThat("The rover is on an plane planet! Call the earthplanists!",
-				rover.getPosition().getX() == 1);
+				rover.getPosition().getY() == 1);
 	}
 	
 	@Test
@@ -61,14 +61,14 @@ public class RoverTest {
 		
 		// Assert
 		assertThat("The rover did not move backwards!",
-				rover.getPosition().getX() == 4.0);
+				rover.getPosition().getY() == 4.0);
 	}
 	
 	@Test
 	public void WeWantToMoveTheRoverWhenItReceivesACommand() throws UnknownCommandException {
 		// Arrange
-		String commandForward = "F";
-		String commandBackWard = "B";
+		Character commandForward = 'F';
+		Character commandBackWard = 'B';
 		
 		// Act
 		rover.readCommand(commandForward);
@@ -78,16 +78,16 @@ public class RoverTest {
 		
 		// Assert
 		assertThat("The rover did not move itself forward.",
-				moveForward.getX() == 6.0);
+				moveForward.getY() == 6.0);
 		assertThat("The rover did not move itself backwards.",
-				moveBackward.getX() == 5.0);
+				moveBackward.getY() == 5.0);
 	}
 	
 	@Test
 	public void WeWantToRotateTheRoverWhenItReceivesACommand() throws UnknownCommandException {
 		// Arrange
-		String commandLeft = "L";
-		String commandRight = "R";
+		Character commandLeft = 'L';
+		Character commandRight = 'R';
 		
 		// Act
 		rover.readCommand(commandLeft);
@@ -105,7 +105,7 @@ public class RoverTest {
 	@Test(expected = UnknownCommandException.class)
 	public void WeWantToHandleWhenReceivingAWrongCommand() throws UnknownCommandException {
 		// Arrange
-		String wrongCommand = "T";
+		Character wrongCommand = 'T';
 		
 		// Arrange
 		rover.readCommand(wrongCommand);
@@ -117,6 +117,21 @@ public class RoverTest {
 				rover.getRoverDirection().equals(Direction.NORTH));
 	}
 	
-	
+	@Test
+	public void WeWantTheRoverToHandleAListOfCommands() throws UnknownCommandException {
+		// Arrange
+		// Create array of commands with position destination (2,4)
+		Character[] commands = {'L', 'F', 'F', 'F', 'R', 'B'};
+		
+		// Act
+		// Read the commands
+		rover.readCommands(commands);
+		
+		// Assert
+		assertThat("The rover position is incorrect",
+				rover.getPosition().equals(Coordinate.createCoordinate(2, 4)));
+		assertThat("The rover direction is incorrect",
+				rover.getRoverDirection().equals(Direction.NORTH));
+	}
 	
 }

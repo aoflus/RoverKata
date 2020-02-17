@@ -46,7 +46,8 @@ public class Rover {
 		this.direction = this.direction.rotateRight();
 	}
 	
-	public void readCommand(String stringCommand) throws UnknownCommandException {
+	public void readCommand(Character characterCommand) throws UnknownCommandException {
+		String stringCommand = characterCommand.toString();
 		Command command = Enums.getIfPresent(Command.class, stringCommand).orNull();
 		if (command != null) {
 			switch (command) {
@@ -65,6 +66,12 @@ public class Rover {
 			}
 		} else {
 			throw new UnknownCommandException(stringCommand);
+		}
+	}
+	
+	public void readCommands(Character[] commands) throws UnknownCommandException {
+		for (Character c : commands) {
+			readCommand(c);
 		}
 	}
 }
