@@ -2,11 +2,15 @@ package com.aoflus.rover.model;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import com.aoflus.rover.utils.Coordinate;
 import com.aoflus.rover.utils.Direction;
+import com.aoflus.rover.utils.InvalidObstaclesException;
 import com.aoflus.rover.utils.UnknownCommandException;
 
 public class RoverTest {
@@ -118,7 +122,8 @@ public class RoverTest {
 	}
 	
 	@Test
-	public void WeWantTheRoverToHandleAListOfCommands() throws UnknownCommandException {
+	public void WeWantTheRoverToHandleAListOfCommands() throws InvalidObstaclesException, 
+	UnknownCommandException {
 		// Arrange
 		// Create array of commands with position destination (2,4)
 		Character[] commands = {'L', 'F', 'F', 'F', 'R', 'B'};
@@ -132,6 +137,28 @@ public class RoverTest {
 				rover.getPosition().equals(Coordinate.createCoordinate(2, 4)));
 		assertThat("The rover direction is incorrect",
 				rover.getRoverDirection().equals(Direction.NORTH));
+	}
+	
+	@Test
+	public void WeWantToControlRoverLogicWhenColliding() throws InvalidObstaclesException,
+	UnknownCommandException {
+		// Arrange
+		// Create array of commands with position destination (2,4)
+		Character[] commands = {'L', 'F', 'F', 'F', 'R', 'B'};
+		List<Coordinate> obstaclesList = new ArrayList<>();
+		obstaclesList.add(Coordinate.createCoordinate(3, 5));
+		
+		mars.generateObstacles(obstaclesList);
+		
+		// Act
+		// Read the commands
+		rover.readCommands(commands);
+		
+		// Assert
+		assertThat("The rover position is incorrect",
+				rover.getPosition().equals(Coordinate.createCoordinate(4, 5)));
+		assertThat("The rover direction is incorrect",
+				rover.getRoverDirection().equals(Direction.WEST));
 	}
 	
 }

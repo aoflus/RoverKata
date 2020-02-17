@@ -1,5 +1,6 @@
 package com.aoflus.rover.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.aoflus.rover.utils.Coordinate;
@@ -12,6 +13,7 @@ public class Mars {
 	
 	public Mars(Coordinate marsSize) {
 		this.marsSize = marsSize;
+		this.obstacles = Obstacles.generateObstacles(new ArrayList<Coordinate>());
 	}
 	
 	public Coordinate getMarsSize() {

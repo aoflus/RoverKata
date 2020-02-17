@@ -1,5 +1,8 @@
 package com.aoflus.rover.model;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.aoflus.rover.utils.Command;
 import com.aoflus.rover.utils.Coordinate;
 import com.aoflus.rover.utils.Direction;
@@ -7,15 +10,19 @@ import com.aoflus.rover.utils.UnknownCommandException;
 import com.google.common.base.Enums;
 
 public class Rover {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Rover.class);
 
 	private Coordinate position;
 	private Direction direction;
 	private Mars mars;
+	private boolean collided;
 	
 	public Rover(Mars mars, Coordinate position, Direction direction) {
 		this.position = position;
 		this.direction = direction;
 		this.mars = mars;
+		this.collided = false;
 	}
 	
 	public Mars getMars() {
@@ -27,11 +34,23 @@ public class Rover {
 	}
 	
 	public void moveForward() {
-		this.position = this.direction.moveForward(this);
+		if (mars.getObstacles().checkCollision(this.direction.moveForward(this))) {
+			this.collided = true;
+			LOG.info("Collision detected at coordinate: {}",
+					this.direction.moveForward(this));
+		} else {
+			this.position = this.direction.moveForward(this);
+		}
 	}
 	
 	public void moveBackward() {
-		this.position = this.direction.moveBackward(this);
+		if (mars.getObstacles().checkCollision(this.direction.moveBackward(this))) {
+			this.collided = true;
+			LOG.info("Collision detected at coordinate: {}",
+					this.direction.moveBackward(this));
+		} else {
+			this.position = this.direction.moveBackward(this);
+		}
 	}
 
 	public Direction getRoverDirection() {
@@ -71,7 +90,10 @@ public class Rover {
 	
 	public void readCommands(Character[] commands) throws UnknownCommandException {
 		for (Character c : commands) {
-			readCommand(c);
+			if (!collided) {
+				readCommand(c);
+			}
+			else break;
 		}
 	}
 }
