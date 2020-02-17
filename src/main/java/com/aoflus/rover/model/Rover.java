@@ -28,7 +28,7 @@ public class Rover {
 	}
 	
 	public void moveBackward() {
-		
+		this.position = this.direction.moveBackward(this);
 	}
 	
 	public void changeDirection(Direction direction) {

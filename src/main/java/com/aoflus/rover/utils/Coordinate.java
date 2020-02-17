@@ -25,6 +25,10 @@ public class Coordinate {
 	public Coordinate increaseX(Coordinate worldLimit) {
 		return Coordinate.createCoordinate((x + 1) % worldLimit.getX(), this.y);
 	}
+
+	public Coordinate decreaseX(Coordinate worldLimit) {
+		return Coordinate.createCoordinate((x - 1) % worldLimit.getX(), this.y);
+	}
 	
 	
 }

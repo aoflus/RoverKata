@@ -10,8 +10,7 @@ public enum Direction implements MovementBehaviour {
 		}
 
 		public Coordinate moveBackward(Rover rover) {
-			// TODO Auto-generated method stub
-			return null;
+			return rover.getPosition().decreaseX(rover.getMars().getMarsSize());
 		}
 	},
 	

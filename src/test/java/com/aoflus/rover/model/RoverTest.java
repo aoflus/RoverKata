@@ -44,5 +44,14 @@ public class RoverTest {
 		assertThat("The rover is on an plane planet! Call the earthplanists!",
 				rover.getPosition().getX() == 1);
 	}
+	
+	@Test
+	public void WeWantToMoveBackwardsWithTheRover() {
+		// Arrange & Act
+		rover.moveBackward();
+		
+		// Assert
+		assertThat("The rover did not move backwards!",rover.getPosition().getX() == 4.0);
+	}
 
 }
