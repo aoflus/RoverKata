@@ -31,13 +31,17 @@ public class Rover {
 	public void moveBackward() {
 		this.position = this.direction.moveBackward(this);
 	}
-	
-	public void changeDirection(Direction direction) {
-		this.direction = direction;
-	}
 
 	public Direction getRoverDirection() {
 		return this.direction;
+	}
+	
+	public void rotateLeft() {
+		this.direction = this.direction.rotateLeft();
+	}
+	
+	public void rotateRight() {
+		this.direction = this.direction.rotateRight();
 	}
 	
 	public void readCommand(Command command) {
@@ -49,10 +53,10 @@ public class Rover {
 				moveBackward();
 			break;
 			case L:
-				// TODO
+				rotateLeft();
 			break;
 			case R:
-				// TODO
+				rotateRight();
 			break;
 		}
 	}
