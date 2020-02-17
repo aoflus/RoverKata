@@ -47,4 +47,9 @@ public class Coordinate {
 				&& ((Coordinate) otherCoordinate).getY() == this.y;
 		}
 	}
+	
+	@Override
+	public int hashCode() {
+		return this.hashCode();
+	}
 }
