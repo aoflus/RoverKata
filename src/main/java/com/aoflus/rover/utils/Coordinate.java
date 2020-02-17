@@ -1,26 +1,30 @@
 package com.aoflus.rover.utils;
 
-import java.awt.geom.Point2D;
-
-public class Coordinate extends Point2D {
+public class Coordinate {
 	
 	private double x;
 	private double y;
+	
+	private Coordinate(double x, double y) {
+		this.x = x;
+		this.y = y;
+	}
 
-	@Override
+	public static Coordinate createCoordinate(double x, double y) {
+		return new Coordinate(x, y);
+	}
+	
 	public double getX() {
 		return x;
 	}
 
-	@Override
 	public double getY() {
 		return y;
 	}
 
-	@Override
-	public void setLocation(double x, double y) {
-		this.x = y;
-		this.y = y;
+	public Coordinate increaseX(Coordinate worldLimit) {
+		return Coordinate.createCoordinate((x + 1) % worldLimit.getX(), this.y);
 	}
+	
 	
 }
