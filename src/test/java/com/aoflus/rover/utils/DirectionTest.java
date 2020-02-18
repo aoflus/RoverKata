@@ -7,6 +7,8 @@ import org.junit.Test;
 
 import com.aoflus.rover.model.Mars;
 import com.aoflus.rover.model.Rover;
+import com.aoflus.rover.support.Coordinate;
+import com.aoflus.rover.support.Direction;
 
 public class DirectionTest {
 	

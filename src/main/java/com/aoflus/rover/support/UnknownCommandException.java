@@ -1,4 +1,4 @@
-package com.aoflus.rover.utils;
+package com.aoflus.rover.support;
 
 @SuppressWarnings("serial")
 public class UnknownCommandException extends Exception {

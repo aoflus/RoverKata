@@ -2,7 +2,7 @@ package com.aoflus.rover.model;
 
 import java.util.List;
 
-import com.aoflus.rover.utils.Coordinate;
+import com.aoflus.rover.support.Coordinate;
 
 public class Obstacles {
 	

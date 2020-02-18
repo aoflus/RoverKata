@@ -3,8 +3,8 @@ package com.aoflus.rover.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aoflus.rover.utils.Coordinate;
-import com.aoflus.rover.utils.InvalidObstaclesException;
+import com.aoflus.rover.support.Coordinate;
+import com.aoflus.rover.support.InvalidObstaclesException;
 
 public class Mars {
 	

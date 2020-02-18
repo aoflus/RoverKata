@@ -3,8 +3,8 @@ package com.aoflus.rover.model;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.aoflus.rover.utils.Coordinate;
-import com.aoflus.rover.utils.InvalidObstaclesException;
+import com.aoflus.rover.support.Coordinate;
+import com.aoflus.rover.support.InvalidObstaclesException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 

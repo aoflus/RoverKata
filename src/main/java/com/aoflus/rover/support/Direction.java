@@ -1,4 +1,4 @@
-package com.aoflus.rover.utils;
+package com.aoflus.rover.support;
 
 import com.aoflus.rover.model.Rover;
 

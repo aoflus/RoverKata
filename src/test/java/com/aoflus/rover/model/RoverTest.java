@@ -8,10 +8,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.aoflus.rover.utils.Coordinate;
-import com.aoflus.rover.utils.Direction;
-import com.aoflus.rover.utils.InvalidObstaclesException;
-import com.aoflus.rover.utils.UnknownCommandException;
+import com.aoflus.rover.support.Coordinate;
+import com.aoflus.rover.support.Direction;
+import com.aoflus.rover.support.InvalidObstaclesException;
+import com.aoflus.rover.support.UnknownCommandException;
 
 public class RoverTest {
 	

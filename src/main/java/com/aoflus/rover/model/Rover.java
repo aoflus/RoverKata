@@ -3,10 +3,10 @@ package com.aoflus.rover.model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aoflus.rover.utils.Command;
-import com.aoflus.rover.utils.Coordinate;
-import com.aoflus.rover.utils.Direction;
-import com.aoflus.rover.utils.UnknownCommandException;
+import com.aoflus.rover.support.Command;
+import com.aoflus.rover.support.Coordinate;
+import com.aoflus.rover.support.Direction;
+import com.aoflus.rover.support.UnknownCommandException;
 import com.google.common.base.Enums;
 
 public class Rover {

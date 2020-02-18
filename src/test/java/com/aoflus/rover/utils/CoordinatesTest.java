@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.aoflus.rover.model.Mars;
+import com.aoflus.rover.support.Coordinate;
 
 public class CoordinatesTest {
 	
