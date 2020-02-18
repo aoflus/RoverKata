@@ -22,29 +22,55 @@ public class CoordinatesTest {
 	@Test
 	public void WeWantToDisplayCoordinatesPosition() {
 		// Assert
-		System.out.println(coordinate.toString());
 		assertThat("The display is incorrect", coordinate.toString().equals("x:10,0, y:15,0"));
 	}
 
 	@Test
-	public void WeWantToCheckThatCoordinatesAreGeneratedCorrectly() {
+	public void WeWantToAssureTheXValueOfTheCoordinateIsCorrect() {
 		// Assert
 		assertThat("The coordinates are incorrect", coordinate.getX() == 10.0);
-		assertThat("The coordinates are incorrect", coordinate.getY() == 15.0);
 	}
-
+	
 	@Test
-	public void WeWantToCheckThatIncreaseAndDecreaseWorkCorrectly() {
+	public void WeWantToAssureTheYValueOfTheCoordinateIsCorrect() {
+		// Assert
+		assertThat("The coordinates are incorrect", coordinate.getY() == 15.0);
+
+	}
+	
+	@Test
+	public void WeWantToIncreaseTheValueOfXTakingInCareMarsSphere() {
 		// Arrange & Act
 		Coordinate incX = coordinate.increaseX(mars.getMarsSize());
-		Coordinate incY = coordinate.increaseY(mars.getMarsSize());
-		Coordinate decX = coordinate.decreaseX(mars.getMarsSize());
-		Coordinate decY = coordinate.decreaseY(mars.getMarsSize());
 		
 		// Assert
 		assertThat("The X coordinate is incorrect.", incX.getX() == 1.0);
-		assertThat("The X coordinate is incorrect.", incY.getY() == 1.0);
-		assertThat("The Y coordinate is incorrect", decX.getX() == 9.0);
+	}
+	
+	@Test
+	public void WeWantToDecreaseTheValueOfXTakingInCareMarsSphere() {
+		// Arrange & Act
+		Coordinate decX = coordinate.decreaseX(mars.getMarsSize());
+		
+		// Assert
+		assertThat("The X coordinate is incorrect", decX.getX() == 9.0);
+	}
+	
+	@Test
+	public void WeWantToIncreaseTheYValueTakingInCareMarsSphere() {
+		// Arrange & Act
+		Coordinate incY = coordinate.increaseY(mars.getMarsSize());
+		
+		// Assert
+		assertThat("The Y coordinate is incorrect.", incY.getY() == 1.0);
+	}
+	
+	@Test
+	public void WeWantToDecreaseTheYValuTakingInCareMarsSphere() {
+		// Arrange & Act
+		Coordinate decY = coordinate.decreaseY(mars.getMarsSize());
+		
+		// Assert
 		assertThat("The Y coordinate is incorrect", decY.getY() == 14.0);
 	}
 	

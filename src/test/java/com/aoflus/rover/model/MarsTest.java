@@ -39,7 +39,7 @@ public class MarsTest {
 		
 		// Assert
 		assertThat("The coordinates do not match",
-				mars.getObstacles().getObstaclesList().get(0).equals(Coordinate.createCoordinate(1, 1)));
+				mars.getObstacles().getObstaclesList().get(0).equals(Coordinate.createCoordinate(1, 6)));
 	}
 	
 	@Test(expected = InvalidObstaclesException.class)
